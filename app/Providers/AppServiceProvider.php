@@ -2,6 +2,7 @@
 
 namespace Furbook\Providers;
 
+use Furbook\Http\Views\Composers\CatFormComposer;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         \Schema::defaultStringLength(191);
+        \View::composer('partials.forms.cat', CatFormComposer::class);
     }
 }
